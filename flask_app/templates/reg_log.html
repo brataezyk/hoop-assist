@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/css/custom.css">
+    <title>Login and Registration Page</title>
+</head>
+<body class="masthead"
+style="background-image: url('./static/img/cool-background.png');">
+    <div class="container mt-5">
+        <div class="row">
+        <h1 class="text-center">Hoop Assist</h1>
+        <h2 class="text-center">Find a Basketball Hoop Near You!</h2>
+        </div>
+        <div class="row justify-content-around">
+            <div class="col-md-3">
+                <h2>Create an Account</h2>
+                {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+                    {% if messages %}                            <!-- check if there are any messages -->
+                        {% for message in messages %}            <!-- loop through the messages -->
+                            <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <form action="/register" method = 'post' class="row g-1">
+                    <label for="firstName" class="form-label">First Name:</label>
+                    <input type="text" name="first_name" id="" class="form-control" required>
+                    <label for="lastName" class="form-label">Last Name:</label>
+                    <input type="text" name="last_name" id="" class="form-control" required>
+                    <label for="email@" class="form-label">Email:</label>
+                    <input type="text" name="email" id="" class="form-control" required>
+                    <label for="passwrd" class="form-label">Password:</label>
+                    <input type="text" name="password" id="" class="form-control" required>
+                    <label for="conPass" class="form-label">Confirm Password:</label>
+                    <input type="text" name="confirm_password" id="" class="form-control" required>
+                    <input type="submit" value="Register" class="btn btn-primary">
+                </form>
+            </div>
+            <div class="col-md-3">
+                <h2>Login</h2>
+                {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+                    {% if messages %}                            <!-- check if there are any messages -->
+                        {% for message in messages %}            <!-- loop through the messages -->
+                            <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <form action="/login" method = 'post' class="row g-1">
+                    <label for="email@" class="form-label">Email:</label>
+                    <input type="text" name="email" id="" class="form-control" required>
+                    <label for="passwrd" class="form-label">Password:</label>
+                    <input type="text" name="password" id="" class="form-control" required>
+                    <input type="submit" value="Login" class="btn btn-primary">
+                </form>
+            </div>
+        </div>
+        <!-- JavaScript Bundle with Popper -->
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+
+</body>
+</html>
